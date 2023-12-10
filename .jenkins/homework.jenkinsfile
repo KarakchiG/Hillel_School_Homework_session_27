@@ -21,14 +21,14 @@ pipeline {
         stage("Test Repo Setup") {
             steps {
                 echo('Provide execute permission to install.sh')
-                sh './install.sh'
+                bat './install.sh'.execute()
             }
         }
 
         stage('Test Run') {
             steps {
                 echo "Running tests"
-                sh "./run.sh -m ${MARKER} --url ${URL} ${PATH_TO_TESTS}"
+                bat "./run.sh -m ${MARKER} --url ${URL} ${PATH_TO_TESTS}"
             }
         }
     }
