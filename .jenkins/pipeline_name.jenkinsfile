@@ -6,7 +6,7 @@ pipeline {
                 println("Show system installed python version")
                 sh 'python3 -V'
                 sh 'rm -rf auto_project'
-                sh 'git clone https://github.com/tishyk/auto_project.git'
+                sh 'git clone https://github.com/KarakchiG/Hillel_School_Homework_session_27.git'
                 sh 'ls -la auto_project'
             }
         }
