@@ -1,0 +1,23 @@
+pipeline {
+    agent 'any'
+    parameters {
+        string(name: "branch", defaultValue: "master", description: "which branch to use")
+        string(name: "URL", defaultValue: "https://guest:welcome2qauto@qauto2.forstudy.space/")
+        string(name: "PATH_TO_TESTS", defaultValue: "./test_selenium_first_steps.py")
+        string(name: "MARKER", defaultValue: "smoke", description: "what marker to use")
+    }
+
+    stage("Test Repo Setup") {
+        steps {
+            echo 'Provide execute permission to install.sh'
+            bat './install.sh'
+        }
+    }
+
+    stage('Test Run') {
+        steps {
+            echo "Running tests"
+            bat "./run.sh -m ${MARKER} --url ${URL} ${PATH_TO_TESTS}"
+        }
+    }
+}
