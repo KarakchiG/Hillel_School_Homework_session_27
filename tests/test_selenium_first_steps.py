@@ -7,8 +7,6 @@ from selenium.common.exceptions import NoSuchElementException
 @allure.issue(url="https://google.com", name="Link for very important bag")
 @allure.link(url="https://google.com", name="Link to TestRail")
 def test_registration(logger, registration_facade, registration_user, session):
-    """ This test should be fixed to use registration_user instead of john_user fixture
-    FIXED!"""
 
     logger.info("User register test")
     registration_facade.registration_user(registration_user)
