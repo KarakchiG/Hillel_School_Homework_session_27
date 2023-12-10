@@ -5,7 +5,6 @@ pipeline {
             steps {
                 println("Show system installed python version")
                 bat 'python --version'
-                bat 'rm -rf Hillel_School_Homework_session_27'
                 bat 'git clone https://github.com/KarakchiG/Hillel_School_Homework_session_27.git'
                 bat 'ls -la Hillel_School_Homework_session_27'
             }
