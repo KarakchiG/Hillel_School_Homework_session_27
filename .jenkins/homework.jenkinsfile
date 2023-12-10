@@ -20,7 +20,8 @@ pipeline {
 
         stage("Test Repo Setup") {
             steps {
-                echo('Provide execute permission to install.sh')
+                echo('Execute permission to install.sh')
+                bat '.\\install.sh'
             }
         }
 
