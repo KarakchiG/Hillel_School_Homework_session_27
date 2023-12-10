@@ -7,9 +7,19 @@ pipeline {
         string(name: "MARKER", defaultValue: "smoke", description: "what marker to use")
     }
 
+    stage("First Stage") {
+        steps {
+            echo("Show system installed python version")
+            bat 'python --version'
+            bat 'rmdir /s /q Hillel_School_Homework_session_27'
+            bat 'git clone https://github.com/KarakchiG/Hillel_School_Homework_session_27.git'
+            bat 'dir Hillel_School_Homework_session_27'
+        }
+    }
+
     stage("Test Repo Setup") {
         steps {
-            echo 'Provide execute permission to install.sh'
+            echo('Provide execute permission to install.sh')
             bat './install.sh'
         }
     }
