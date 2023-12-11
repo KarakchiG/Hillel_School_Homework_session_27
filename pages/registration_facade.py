@@ -2,6 +2,7 @@ import allure
 from allure_commons.types import AttachmentType
 
 from pages.base_facade import BaseFacade
+import settings
 
 
 class RegistrationFacade(BaseFacade):
@@ -11,7 +12,7 @@ class RegistrationFacade(BaseFacade):
         self.open_page()
 
     def open_page(self):
-        self.driver.get("https://guest:welcome2qauto@qauto2.forstudy.space/")
+        self.driver.get(settings.BASE_URL)
 
     @allure.step("Register user")
     def registration_user(self, registration_user):
