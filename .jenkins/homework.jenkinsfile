@@ -19,7 +19,7 @@
 //         }
 //
 //         stage("Test Repo Setup") {
-ls//             steps {
+//             steps {
 //                 echo('Execute install.sh')
 //                 bat 'install.sh'
 //             }
