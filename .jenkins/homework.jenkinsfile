@@ -57,7 +57,7 @@ pipeline {
         stage("Test Repo Setup") {
             steps {
                 echo('Setup Test Repository')
-                bat "bash ./install.sh"
+                sh "bash ./install.sh"
                 bat "pwd"
             }
         }
@@ -65,7 +65,7 @@ pipeline {
         stage('Test Run') {
             steps {
                 echo "Running tests"
-                bat "bash ./run.sh -m ${MARKER} --url ${BASE_URL} ${PATH_TO_TESTS}"
+                sh "bash ./run.sh -m ${MARKER} --url ${BASE_URL} ${PATH_TO_TESTS}"
             }
         }
     }
