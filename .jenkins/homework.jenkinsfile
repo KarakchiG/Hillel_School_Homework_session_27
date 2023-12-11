@@ -58,7 +58,6 @@ pipeline {
             steps {
                 echo('Setup Test Repository')
                 bat 'install.sh'
-                bat "pwd"
             }
         }
 
