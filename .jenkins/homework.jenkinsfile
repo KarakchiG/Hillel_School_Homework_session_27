@@ -4,7 +4,7 @@ pipeline {
         string(name: "branch", defaultValue: "master", description: "which branch to use")
         string(name: "URL", defaultValue: "https://guest:welcome2qauto@qauto2.forstudy.space/")
         string(name: "PATH_TO_TESTS", defaultValue: "./test_selenium_first_steps.py")
-        string(name: "MARKER", defaultValue: "smoke", description: "what marker to use")
+        string(name: "MARKER", defaultValue: "user_logged_in", description: "what marker to use")
     }
 
     stages {

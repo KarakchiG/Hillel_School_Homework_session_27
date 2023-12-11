@@ -1,11 +1,13 @@
 import allure
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException
+from pytest import mark
 
 
 @allure.feature("Beautiful tests")
 @allure.issue(url="https://google.com", name="Link for very important bag")
 @allure.link(url="https://google.com", name="Link to TestRail")
+@mark.user_logged_in
 def test_registration(logger, registration_facade, registration_user, session):
 
     logger.info("User register test")
