@@ -1,39 +1,3 @@
-// pipeline {
-//     agent 'any'
-//     parameters {
-//         string(name: "branch", defaultValue: "master", description: "which branch to use")
-//         string(name: "URL", defaultValue: "https://guest:welcome2qauto@qauto2.forstudy.space/")
-//         string(name: "PATH_TO_TESTS", defaultValue: ".\test_selenium_first_steps.py")
-//         string(name: "MARKER", defaultValue: "user_logged_in", description: "what marker to use")
-//     }
-//
-//     stages {
-//         stage("First Stage") {
-//             steps {
-//                 echo("Show system installed python version")
-//                 bat 'python --version'
-//                 bat 'rmdir /s /q Hillel_School_Homework_session_27'
-//                 bat 'git clone https://github.com/KarakchiG/Hillel_School_Homework_session_27.git'
-//                 bat 'dir Hillel_School_Homework_session_27'
-//             }
-//         }
-//
-//         stage("Test Repo Setup") {
-//             steps {
-//                 echo('Execute install.sh')
-//                 bat 'install.sh'
-//             }
-//         }
-//
-//         stage('Test Run') {
-//             steps {
-//                 echo "Running tests"
-//                 bat "run.sh -m ${MARKER} --url ${URL} ${PATH_TO_TESTS}"
-//             }
-//         }
-//     }
-// }
-
 pipeline {
     agent any
     parameters {
@@ -66,12 +30,6 @@ pipeline {
                 echo "Running tests"
                 bat "run.sh -m ${MARKER} --url ${BASE_URL} ${PATH_TO_TESTS}"
             }
-        }
-    }
-
-    post {
-        always {
-            echo 'Cleaning up...'
         }
     }
 }
