@@ -56,14 +56,14 @@ pipeline {
         stage("Test Repo Setup") {
             steps {
                 echo('Setup Test Repository')
-                bat 'cd Hillel_School_Homework_session_27 && .\\install.sh'
+                bat 'cd Hillel_School_Homework_session_27 && install.sh'
             }
         }
 
         stage('Test Run') {
             steps {
                 echo "Running tests"
-                bat "cd Hillel_School_Homework_session_27 && .\\run.sh -m ${MARKER} --url ${URL} ${PATH_TO_TESTS}"
+                bat "cd Hillel_School_Homework_session_27 && run.sh -m ${MARKER} --url ${URL} ${PATH_TO_TESTS}"
             }
         }
     }
