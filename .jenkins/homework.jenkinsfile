@@ -57,9 +57,7 @@ pipeline {
         stage("Test Repo Setup") {
             steps {
                 echo('Setup Test Repository')
-                bat 'wsl ./install.sh > output.log 2>&1'
-                echo 'Script Output:'
-                bat 'cat output.log'
+                bat 'install.sh'
                 bat "pwd"
             }
         }
@@ -67,7 +65,7 @@ pipeline {
         stage('Test Run') {
             steps {
                 echo "Running tests"
-                bat "wsl ./run.sh -m ${MARKER} --url ${BASE_URL} ${PATH_TO_TESTS}"
+                bat "run.sh -m ${MARKER} --url ${BASE_URL} ${PATH_TO_TESTS}"
             }
         }
     }
