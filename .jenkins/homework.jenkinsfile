@@ -48,7 +48,7 @@ pipeline {
             steps {
                 echo("Show system installed python version")
                 bat 'python --version'
-//                 bat 'rmdir ./Hillel_School_Homework_session_27'
+                bat 'rmdir ./Hillel_School_Homework_session_27'
                 bat "git clone -b ${params.branch} https://github.com/KarakchiG/Hillel_School_Homework_session_27.git"
                 bat 'dir Hillel_School_Homework_session_27'
             }
