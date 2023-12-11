@@ -3,7 +3,7 @@ pipeline {
     parameters {
         string(name: "branch", defaultValue: "master", description: "which branch to use")
         string(name: "URL", defaultValue: "https://guest:welcome2qauto@qauto2.forstudy.space/")
-        string(name: "PATH_TO_TESTS", defaultValue: "./test_selenium_first_steps.py")
+        string(name: "PATH_TO_TESTS", defaultValue: ".\test_selenium_first_steps.py")
         string(name: "MARKER", defaultValue: "user_logged_in", description: "what marker to use")
     }
 
@@ -20,7 +20,7 @@ pipeline {
 
         stage("Test Repo Setup") {
             steps {
-                echo('Execute permission to install.sh')
+                echo('Execute install.sh')
                 bat 'install.sh'
             }
         }
