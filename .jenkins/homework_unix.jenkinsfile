@@ -3,7 +3,7 @@ pipeline {
     parameters {
         string(name: "branch", defaultValue: "master", description: "which branch to use")
         string(name: "BASE_URL", defaultValue: "https://guest:welcome2qauto@qauto2.forstudy.space/")
-        string(name: "PATH_TO_TESTS", defaultValue: "tests/test_selenium_first_steps.py")
+        string(name: "PATH_TO_TESTS", defaultValue: "./test_selenium_first_steps.py")
         string(name: "MARKER", defaultValue: "user_logged_in", description: "what marker to use")
     }
 
@@ -11,31 +11,26 @@ pipeline {
         stage("First Stage") {
             steps {
                 echo("Show system installed python version")
-                bat 'python --version'
-                bat 'rmdir /s /q Hillel_School_Homework_session_27'
-                bat "git clone -b ${params.branch} https://github.com/KarakchiG/Hillel_School_Homework_session_27.git"
-                bat 'dir Hillel_School_Homework_session_27'
+                sh 'python3 --version'
+                sh 'rm -rf Hillel_School_Homework_session_27'
+                sh "git clone -b ${params.branch} https://github.com/KarakchiG/Hillel_School_Homework_session_27.git"
+                sh 'ls Hillel_School_Homework_session_27'
             }
         }
 
         stage("Test Repo Setup") {
             steps {
                 echo('Setup Test Repository')
-                bat "install.sh"
+                sh "chmod +x install.sh"
+                sh "./install.sh"
             }
         }
 
         stage('Test Run') {
             steps {
-                echo "Running tests"
-                bat "run.sh -m ${MARKER} --url ${BASE_URL} ${PATH_TO_TESTS}"
+                echo ("Running tests")
+                sh "./run.sh -m ${MARKER} --url ${BASE_URL} ${PATH_TO_TESTS}"
             }
-        }
-    }
-
-    post {
-        always {
-            echo 'Cleaning up...'
         }
     }
 }
